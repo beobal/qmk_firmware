@@ -5,54 +5,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Base Layer: Colemak-DHm
  *
  * ,-----------------------------------------.                              ,-----------------------------------------.
- * | Tab  |   Q  |   W  |   F  |   P  |   B  |                              |   J  |   L  |   U  |   Y  | ;  : | \  | |
+ * | Tab  |   Q  |   W  |   F  |   P  |   B  |                              |   J  |   L  |   U  |   Y  | '  " | \  | |
  * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
- * | Esc/↥| A/Ctl| R/Opt| S/Cmd| T/Sft|   G  |                              |   M  | N/Sft| E/Cmd| I/Opt| O/Ctl| '  " |
+ * | Esc/~| A/Ctl| R/Opt| S/Sft| T/Cmd|   G  |                              |   M  | N/Cmd| E/Sft| I/Opt| O/Ctl| ;  : |
  * |------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+------|
- * | Sft  |   Z  |   X  |   C  | D/Hpr|   V  |      |      |  |      |      |   K  | H/Hpr| ,  < | .  > | /  ? |CpsWrd|
+ * |CpsWrd|   Z  |   X  |   C  | D/Hpr|   V  |      |      |  |      |      |   K  | H/Hpr| ,  < | .  > | /  ? |CpsWrd|
  * `--------------------+------+------+------+------+------|  |------+------+------+------+------+--------------------'
- *                      |      |      | Tab/ | Space| Prev |  | Next | Bspc | Entr/|      |      |
- *                      |      |      | Lower|      | tab  |  | tab  |      | Raise|      |      |
+ *                      |      | Tab  | Space| Raise| Lower|  | Raise| Lower| Bksp | Enter|      |
+ *                      |      |      |      |      |      |  |      |      |      |      |      |
  *                      `----------------------------------'  `----------------------------------'
  *
- * ,-----------------------------------------.                              ,-----------------------------------------.
- * | Tab  |   Й  |   Ц  |   У  |   К  |   Е  |                              |   Н  |   Г  |   Ш  |   Щ  |   З  | \  / |
- * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
- * | Esc/↥| Ф/Ctl| Ы/Opt| В/Cmd| А/Sft|   П  |                              |   Р  | О/Sft| Л/Cmd| Д/Opt| Ж/Ctl|   Э  |
- * |------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+------|
- * | Sft  |   Я  |   Ч  |   С  | М/Hpr|   И  |      |      |  |      |      |   Т  | Ь/Hpr|   Б  |   Ю  | .  , |CpsWrd|
- * `--------------------+------+------+------+------+------|  |------+------+------+------+------+--------------------'
- *                      |      |      | Tab/ | Space| Prev |  | Next | Bspc | Entr/|      |      |
- *                      |      |      | Lower|      | tab  |  | tab  |      | Raise|      |      |
- *                      `----------------------------------'  `----------------------------------'
  */
 [_COLEMAK] = LAYOUT(
-    KC_TAB , KC_Q   , KC_W   , KC_F   , KC_P   , KC_B   ,                                     KC_J   , KC_L   , KC_U   , KC_Y   , KC_SCLN, KC_BSLS,
-    ESC_RSE, A_LCTL , R_LOPT , S_LCMD , T_LSFT , KC_G   ,                                     KC_M   , N_RSFT , E_RCMD , I_ROPT , O_RCTL , KC_QUOT,
-    KC_LSFT, KC_Z   , KC_X   , KC_C   , D_HYPR , KC_V   , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_K   , H_HYPR , KC_COMM, KC_DOT , KC_SLSH,CAPS_WRD,
-                               XXXXXXX, XXXXXXX, TAB_LWR, KC_SPC , PRV_TAB, NXT_TAB, KC_BSPC, ENT_RSE, XXXXXXX, XXXXXXX
+    KC_TAB , KC_Q   , KC_W   , KC_F   , KC_P   , KC_B   ,                                     KC_J   , KC_L   , KC_U   , KC_Y   , KC_QUOT, KC_BSLS,
+    KC_GESC, A_LCTL , R_LOPT , S_LSFT , T_LCMD , KC_G   ,                                     KC_M   , N_RCMD , E_RSFT , I_ROPT , O_RCTL , KC_SCLN,
+    CPS_WRD, KC_Z   , KC_X   , KC_C   , D_HYPR , KC_V   , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_K   , H_HYPR , KC_COMM, KC_DOT , KC_SLSH, CPS_WRD,
+                               XXXXXXX, KC_TAB , KC_SPC , RAISE  , LOWER  , RAISE  , LOWER  , KC_BSPC, KC_ENT , XXXXXXX
 ),
 
-/*
- * Alt Base Layer: WASD for gaming (vanilla QWERTY without mod-taps)
- *
- * ,-----------------------------------------.                              ,-----------------------------------------.
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  | \  | |
- * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
- * | Esc/↥|   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : | '  " |
- * |------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+------|
- * | Sft  |   Z  |   X  |   C  |   V  |   B  |      |      |  |      |      |   N  |   M  | ,  < | .  > | /  ? | Sft  |
- * `--------------------+------+------+------+------+------|  |------+------+------+------+------+--------------------'
- *                      |      | Opt  | Lower| Space| Entr |  | Entr | Bspc | Entr/| Opt  |      |
- *                      |      |      |      |      |      |  |      |      | Raise|      |      |
- *                      `----------------------------------'  `----------------------------------'
- */
-[_WASD] = LAYOUT(
-    KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                                     KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSLS,
-    ESC_RSE, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                                     KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT,
-    KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT,
-                               XXXXXXX, KC_LOPT, LOWER  , KC_SPC , KC_ENT , KC_ENT , KC_BSPC, RAISE  , KC_ROPT, XXXXXXX
-),
 
 /*
  * Lower Layer: symbols and numbers
@@ -79,32 +49,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Raise Layer: media and navigation
  *
  * ,-----------------------------------------.                              ,-----------------------------------------.
- * |      | Ins  | Prev | Play | Next |      |                              | PgUp |PrvWrd| Up   |NxtWrd|DelLne| Bspc |
+ * |      | Mute | VolD | VolU | Play |      |                              |      | PgUp |PrvWrd|LneBeg|DelLne| Bspc |
  * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
- * |      | Ctl  | Opt  | Cmd  | Sft  | CpsLk|                              | PgDn | Left | Down | Right| Del  | Bspc |
+ * |      | Ctl  | Opt  | Sft  | Cmd  | CpsLk|                              | Left | Down |  Up  | Right| Del  | Bspc |
  * |------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+------|
- * |      | Undo | Cut  | Copy | Paste| Redo |      |      |  |      |      |      |LneBeg|      |LneEnd|      |      |
+ * |      | Undo | Cut  | Copy | Paste| Redo |      |      |  |      |      |      | PgDn |NxtWrd|LneEnd|      |      |
  * `--------------------+------+------+------+------+------|  |------+------+------+------+------+--------------------'
  *                      | Mute |      |      |      |      |  |      |      |      |      |      |
  *                      |      |      |      |      |      |  |      |      |      |      |      |
  *                      `----------------------------------'  `----------------------------------'
  */
 [_RAISE] = LAYOUT(
-    _______, KC_INS , KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     KC_PGUP, PRV_WRD, KC_UP  , NXT_WRD, DEL_LNE, KC_BSPC,
-    _______, KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_CAPS,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , KC_BSPC,
-    _______, UNDO   , CUT    , COPY   , PASTE  , REDO   , _______, _______, _______, _______, _______, LNE_BEG, _______, LNE_END, _______, _______,
+    _______, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY, _______,                                     _______, KC_PGUP, PRV_WRD, LNE_BEG, DEL_LNE, KC_BSPC,
+    _______, KC_LCTL, KC_LOPT, KC_LSFT, KC_LCMD, KC_CAPS,                                     KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_DEL, KC_BSPC,
+    _______, UNDO   , CUT    , COPY   , PASTE  , REDO   , _______, _______, _______, _______, _______, KC_PGDN, NXT_WRD, LNE_END, _______, _______,
                                KC_MUTE, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
 /*
- * Adjust Layer: RGB and base layer switching, function keys
+ * Adjust Layer: function keys
  *
  * ,-----------------------------------------.                              ,-----------------------------------------.
  * | Reset|  F1  |  F2  |  F3  |  F4  |  F5  |                              |  F6  |  F7  |  F8  |  F9  |  F10 |      |
  * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
- * |      | Togl | Sat+ | Hue+ | Bri+ | Mode+|                              |      |COLEMK| WASD |      |  F11 |      |
+ * |      |      |      |      |      |      |                              |      |      |      |      |  F11 |      |
  * |------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+------|
- * |      | Togl | Sat- | Hue- | Bri- | Mode-|      |      |  |      |      |      |      |      |      |  F12 |      |
+ * |      |      |      |      |      |      |      |      |  |      |      |      |      |      |      |  F12 |      |
  * `--------------------+------+------+------+------+------|  |------+------+------+------+------+--------------------'
  *                      |      |      |      |      |      |  |      |      |      |      |      |
  *                      |      |      |      |      |      |  |      |      |      |      |      |
@@ -112,8 +82,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT(
     RESET  , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  ,                                     KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10, _______,
-    _______, RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI, RGB_MOD,                                     _______, COLEMAK, WASD   , _______, KC_F11, _______,
-    _______, RGB_TOG, RGB_SAD, RGB_HUD, RGB_VAD,RGB_RMOD, _______, _______, _______, _______, _______, _______, _______, _______, KC_F12, _______,
+    _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, KC_F11, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_F12, _______,
                                _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 )};
 
@@ -166,7 +136,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 #endif
 
-// CAPS_WORD: A "smart" Caps Lock key that only capitalizes the next identifier you type
+// CPS_WRD: A "smart" Caps Lock key that only capitalizes the next identifier you type
 // and then toggles off Caps Lock automatically when you're done.
 void caps_word_enable(void) {
     caps_word_on = true;
@@ -213,7 +183,7 @@ void process_caps_word(uint16_t keycode, const keyrecord_t *record) {
         case KC_BSPC:
         case KC_UNDS:
         case KC_PIPE:
-        case CAPS_WRD:
+        case CPS_WRD:
             // If chording mods, disable caps word
             if (record->event.pressed && (get_mods() != MOD_LSFT) && (get_mods() != 0)) {
                 caps_word_disable();
@@ -231,7 +201,7 @@ void process_caps_word(uint16_t keycode, const keyrecord_t *record) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     process_caps_word(keycode, record);
     switch (keycode) {
-        case CAPS_WRD:
+        case CPS_WRD:
             // Toggle `caps_word_on`
             if (record->event.pressed) {
                 if (caps_word_on) {
@@ -275,7 +245,7 @@ void keyboard_post_init_user(void) {
 }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(0, layer_state_cmp(state, _WASD));
+    rgblight_set_layer_state(0, layer_state_cmp(state, _COLEMAK));
     return state;
 }
 
